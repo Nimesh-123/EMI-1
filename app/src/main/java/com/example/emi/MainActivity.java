@@ -30,24 +30,26 @@ public class MainActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Float P = Float.valueOf(e1.getText().toString());
-                Float a = Float.valueOf(e2.getText().toString());
+
+                Float p = Float.valueOf(e1.getText().toString());
+                Float r = Float.valueOf(e2.getText().toString());
                 Float n = Float.valueOf(e3.getText().toString());
 
-                a = a / (12 * 100);
+                r = r/(12*100);
 
                 float final_r = 1.0f;
 
-                for (int i = 0; i < n * 12; i++) {
-                    final_r = final_r * (1 + a);
+                for (int i = 0; i < n*12; i++) {
+                    final_r = final_r*(1+r);
                 }
 
-                float f_ans = P * a * (final_r / (final_r - 1));
+                float f_ans = p*r*(final_r/(final_r-1));
 
-                result.setText("Your Payable Amount With Intrest : " + (f_ans + P) + "\n\n" + "Your Intrest is : " + f_ans);
+                result.setText("Your Payable Amount With Intrest : "+(f_ans+p)+"\n\n"+"Your Intrest is : "+f_ans);
             }
         });
-        result.setOnClickListener(new View.OnClickListener() {
+
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -55,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 e2.setText("");
                 e3.setText("");
                 result.setText("");
+
             }
         });
-    }
 
+    }
 }
